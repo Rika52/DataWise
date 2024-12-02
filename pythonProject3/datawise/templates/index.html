@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataWise: Your Privacy Guide</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DataWise</h1>
+            <p>Your guide to understanding and managing digital privacy.</p>
+        </header>
+        <main>
+            <!-- Analyze a Website Section -->
+            <section class="analyze-section">
+                <h2>Analyze a Website</h2>
+                <p>Enter a website URL to calculate its privacy score:</p>
+                <form id="url-form">
+                    <input type="url" id="website-url" placeholder="https://example.com" required>
+                    <button type="submit">Analyze</button>
+                </form>
+                <div id="url-result" class="result-section" style="display: none;">
+                    <h2>Privacy Score for <span id="url-name"></span></h2>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" id="url-progress-bar-fill"></div>
+                    </div>
+                    <p class="score-text" id="url-score-text"></p>
+                    <h3>Tips:</h3>
+                    <ul id="url-tips-list"></ul>
+                </div>
+            </section>
+
+            <!-- Manual Privacy Scoring Section -->
+            <section class="manual-section">
+                <h2>Manual Privacy Scoring</h2>
+                <p>Select the permissions or cookies used by the website/app:</p>
+                <form id="privacy-form">
+                    <div id="permissions-container">
+                        {% for permission in permissions %}
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="permissions" value="{{ permission }}">
+                            <span>{{ permission.replace("_", " ").capitalize() }}</span>
+                        </label>
+                        {% endfor %}
+                    </div>
+                    <button type="submit">Calculate Privacy Score</button>
+                </form>
+                <div id="manual-result" class="result-section" style="display: none;">
+                    <h2>Your Privacy Score</h2>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" id="manual-progress-bar-fill"></div>
+                    </div>
+                    <p class="score-text" id="manual-score-text"></p>
+                    <h3>Tips:</h3>
+                    <ul id="manual-tips-list"></ul>
+                </div>
+            </section>
+
+            <!-- Chatbot Button -->
+           <!-- Chat Button -->
+            <button id="chat-button" class="chat-button">Talk to an Advisor</button>
+
+            <!-- Chatbot Modal -->
+            <div id="chat-modal" class="chat-modal">
+                <div class="chat-modal-content">
+                    <span id="close-chat" class="close">&times;</span>
+                    <h2>Chat with an Advisor</h2>
+                    <form method="POST" action="/chat-bot" id="chat-form">
+                        <textarea name="openai_query" id="openai-query" placeholder="Type your question here..." required></textarea>
+                        <button type="submit">Send</button>
+                    </form>
+                    <div id="chat-response">
+                        <!-- Chatbot response will appear here -->
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <footer>
+            <p>&copy; 2024 DataWise. All rights reserved.</p>
+        </footer>
+        <script src="/static/scripts.js"></script>
+    </div>
+</body>
+</html>

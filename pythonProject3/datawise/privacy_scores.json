@@ -1,0 +1,11 @@
+{
+    "location": { "score": 10, "tip": "Avoid sharing your location unless necessary." },
+    "contacts": { "score": 15, "tip": "Contacts sharing can expose your network." },
+    "marketing_cookies": { "score": 20, "tip": "Marketing cookies track your habits." },
+    "analytics_cookies": { "score": 5, "tip": "Analytics cookies track data usage." },
+    "notifications": { "score": 10, "tip": "Notifications can disturb your privacy if misused." },
+    "camera_access": { "score": 25, "tip": "Camera access can be invasive and should be restricted." },
+    "microphone_access": { "score": 25, "tip": "Microphone access can record sensitive conversations." },
+    "browsing_history": { "score": 15, "tip": "Browsing history can reveal personal preferences." }
+}
+
